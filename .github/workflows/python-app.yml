@@ -21,10 +21,22 @@ jobs:
         with:
           python-version: '3.x'
 
+      - name: Install dependencies manually
+        run: |
+          python -m venv venv
+          source venv/bin/activate
+          pip install --upgrade pip
+          # Instale as dependências manualmente
+          pip install flake8 pytest  # Adicione aqui os pacotes necessários
+
+      - name: Run Flake8 linting
+        run: |
+          source venv/bin/activate
+          flake8 .
+
       - name: Run tests
         run: |
           source venv/bin/activate
-          pip install pytest
           pytest --maxfail=1 --disable-warnings -q
 
       - name: Create staging directory and copy files
