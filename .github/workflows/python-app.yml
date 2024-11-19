@@ -30,6 +30,10 @@ jobs:
       run: |
         pytest --maxfail=1 --disable-warnings -q
 
+    - name: Create staging directory and copy generated files
+      run: |
+        mkdir -p staging
+
     - name: Upload artifact
       uses: actions/upload-artifact@v4
       with:
