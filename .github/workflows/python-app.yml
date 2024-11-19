@@ -1,45 +1,33 @@
-name: Python application build
+# .github/workflows/python-app.yml
+
+name: Python CI
 
 on:
   push:
-    branches: [ "master" ]
+    branches:
+      - main  # Aciona o workflow quando há um push para a branch "main"
   pull_request:
-    branches: [ "master" ]
-
-permissions:
-  contents: read
+    branches:
+      - main  # Aciona o workflow quando há um PR para a branch "main"
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # Usa a última versão do Ubuntu para executar o CI
 
     steps:
-      
-      - uses: actions/checkout@v4
+    - name: Checando o código
+      uses: actions/checkout@v2  # Faz o checkout do código para o ambiente
 
-      
-      - name: Set up Python 3.9
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.9'
+    - name: Configurar o Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'  # Ou qualquer versão do Python que você preferir
 
-      
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
+    - name: Instalar dependências
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt  # Instala as dependências do arquivo requirements.txt
 
-      - name: Run tests
-        run: |
-          source venv/bin/activate
-          python -m unittest discover -s tests  # Onde 'tests' é o diretório dos testes
-
-      - name: Create staging directory and copy distribution files
-        run: |
-          mkdir -p staging
-          cp -r dist/* staging/
-
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: Python Package
-          path: staging/
+    - name: Rodar testes
+      run: |
+        pytest  # Executa os testes usando o pytest
