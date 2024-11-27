@@ -54,7 +54,7 @@ jobs:
         path: ./artifact
 
     - name: 'Deploy to Azure Web App'
-      uses: actions/download-artifact@v1
+      uses: actions/download-artifact@v3
       id: fa
       with:
         app-name: ${{ env.senaclabazurefunctioninael }}
