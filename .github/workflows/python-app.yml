@@ -58,7 +58,7 @@ jobs:
       uses: Azure/functions-action@v1
       id: fa
       with:
-        app-name: ${{ env.AZURE_FUNCTION_APP_NAME }}
+        app-name: ${{ env.senaclabazurefunctioninael }}
         package: ./artifact/${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
         publish-profile: ${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE }}
         scm-do-build-during-deployment: true
