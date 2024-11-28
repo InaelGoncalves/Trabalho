@@ -2,8 +2,9 @@ name: Python application
 
 
 env:
-  AZURE_FUNCTIONAPP_NAME: senaclabazurefunctioninael   
-  PYTHON_VERSION: '3.0'
+  AZURE_FUNCTIONAPP_NAME: senaclabazurefunctioninael
+  AZURE_FUNCTIONAPP_PACKAGE_PATH: '.'
+  PYTHON_VERSION: '3.9'
 
 on:
   push:
@@ -57,8 +58,8 @@ jobs:
       uses: actions/download-artifact@v3
       id: fa
       with:
-        app-name: ${{ env.AZURE_FUNCTION_APP }}
-        package: ./artifact/${{ env.AZURE_FUNCTIONAPP_PACKAGE_PROFILE }}
+        app-name: ${{ env.AZURE_FUNCTION_APP_NAME }}
+        package: ./artifact/${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
         publish-profile: ${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE }}
         scm-do-build-during-deployment: true
         enable-oryx-build: true
