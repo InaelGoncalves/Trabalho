@@ -2,7 +2,7 @@ name: Python application
 
 
 env:
-  AZURE_FUNCTIONAPP_NAME: senaclabazurefunctioninael
+  AZURE_FUNCTIONAPP_NAME: 'senaclabazurefunctioninael'
   AZURE_FUNCTIONAPP_PACKAGE_PATH: '.'
   PYTHON_VERSION: '3.9'
 
@@ -58,8 +58,8 @@ jobs:
       uses: Azure/functions-action@v1
       id: fa
       with:
-        app-name: ${{ env.senaclabazurefunctioninael }}
-        package: ./artifact/${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
+        app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
+        package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
         publish-profile: ${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE }}
         scm-do-build-during-deployment: true
         enable-oryx-build: true
