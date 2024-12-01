@@ -48,13 +48,13 @@ jobs:
     needs: build
 
     steps:
-    - name: Download artifact from build job
+    - name: Download do artefato da tarefa de build anterior
       uses: actions/download-artifact@v3
       with:
         name: python-publish-app-artifact
         path: ./artifact
 
-    - name: 'Deploy to Azure Web App'
+    - name: fazer Deploy para o Azure
       uses: Azure/functions-action@v1
       id: fa
       with:
