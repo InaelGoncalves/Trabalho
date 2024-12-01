@@ -3,7 +3,7 @@ name: Python application
 
 env:
   AZURE_FUNCTIONAPP_NAME: 'senaclabazurefunctioninael'
-  AZURE_FUNCTIONAPP_PACKAGE_PATH: '.'
+  SECRETS_AZURE: '.'
   PYTHON_VERSION: '3.9'
 
 on:
@@ -59,7 +59,7 @@ jobs:
       id: fa
       with:
         app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
-        package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
-        publish-profile: ${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE }}
+        package: ${{ env.SECRETS_AZURE }}
+        publish-profile: ${{ secrets.SECRETS_AZURE }}
         scm-do-build-during-deployment: true
         enable-oryx-build: true
