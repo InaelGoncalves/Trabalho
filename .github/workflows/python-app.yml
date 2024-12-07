@@ -3,8 +3,9 @@ name: Python application
 
 env:
   AZURE_FUNCTIONAPP_NAME: 'senaclabazurefunctioninael'
+  AZURE_FUNCTIONAPP_PACKAGE_PATH: '.'
   SECRETS_AZURE: '.'
-  PYTHON_VERSION: '3.9'
+  PYTHON_VERSION: '3.10'
 
 on:
   push:
@@ -20,12 +21,12 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Set up Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v4
       with:
-        python-version: '3.8'  
+        python-version: '3.10'  
 
     - name: Install dependencies
       run: |
