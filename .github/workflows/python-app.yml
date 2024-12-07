@@ -11,7 +11,7 @@ permissions:
 
 # Env configuration
 env:
-  AZURE_FUNCTIONAPP_NAME: 'senaclab-azure-functionstest'
+  AZURE_FUNCTIONAPP_NAME: 'senaclabazurefunctioninael'
   AZURE_FUNCTIONAPP_PACKAGE_PATH: '.'
   PYTHON_VERSION: '3.10'
 
