@@ -9,14 +9,13 @@ on:
 permissions:
   contents: read
 
-# Env configuration
+
 env:
   AZURE_FUNCTIONAPP_NAME: 'senaclabazurefunctioninael'
   AZURE_FUNCTIONAPP_PACKAGE_PATH: '.'
   PYTHON_VERSION: '3.10'
 
 jobs:
-  # Build steps
   build:
     runs-on: ubuntu-latest
     environment: dev
